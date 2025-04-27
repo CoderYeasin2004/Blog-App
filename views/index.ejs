@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+
+      <div class="container">
+        <figure class="text-center">
+          <blockquote class="blockquote">
+            <p>All Blogs</p>
+          </blockquote>
+        </figure>
+
+      <% if(blogs.length > 0){ %>
+        <% blogs.forEach((blog) => { %>
+          <div class="card">
+            <div class="card-body">
+              <a class="frontpagecontentlink" href="/blogs/<%= blog._id %>">
+                <h5 class="card-title"><%= blog.title %></h5>
+              </a>
+                <p class="card-text"><%= blog.snippet %></p>
+                <footer class="blockquote-footer">Written by <cite title="Source Title"><%= blog.author %></cite></footer>
+            </div>
+          </div>
+          <% }) %>
+          <% } else { %>
+            <p>There are no blogs to show...</p>
+            <% } %>
+      
+      <%- include("./partials/footer.ejs") %>
+  </body>
+</html>
+
+
+
+      

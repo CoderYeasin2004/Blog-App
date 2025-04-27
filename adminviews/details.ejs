@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+<body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="container">
+        <h3 class="display-6"><%= blog.title %></h3>
+        <p class="lead"><%= blog.body %></p>
+        <button class="btn btn-danger"><a class="addminpaneldelete" data-doc="<%= blog._id %>">Delete</a></button>
+    </div>
+    <%- include("./partials/footer.ejs") %>
+
+    <script>
+        const trashcan = document.querySelector("a.addminpaneldelete");
+        trashcan.addEventListener("click", (e) => {
+            const endpoint = `/blogs/${trashcan.dataset.doc}`;
+            fetch(endpoint, {
+                method: "DELETE"
+            })
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => window.location.href = data.redirect)
+            .catch((err) => console.log(err));
+        })
+    </script>
+</body>
+</html>

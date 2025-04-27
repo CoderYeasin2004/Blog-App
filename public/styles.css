@@ -1,0 +1,13 @@
+.navbar-collapse{
+    flex-grow: 0;
+}
+.frontpagecontentlink{
+    text-decoration: none;
+}
+.frontpagecontentlink:link{
+    text-decoration: none;
+}
+.addminpaneldelete{
+    text-decoration: none;
+    color: whitesmoke;
+}
