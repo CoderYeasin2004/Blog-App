@@ -2,6 +2,8 @@ import express from "express";
 import morgan from "morgan";
 import mongoose from "mongoose";
 import blogrouter from "./routes/blogRoutes.js"
+import { configDotenv } from "dotenv";
+configDotenv();
 
 const port = 3000;
 const app = express();
@@ -15,7 +17,7 @@ app.use((req, res, next) => {
     next();
 })
 
-const dbURI = "mongodb+srv://hyeasin59:hyeasin59@cluster0.s07ekdf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const dbURI = process.env.MONGOURL;
 
 mongoose.connect(dbURI)
 .then((result) => {

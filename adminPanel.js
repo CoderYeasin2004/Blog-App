@@ -3,11 +3,13 @@ import morgan from "morgan";
 import Blog from "./models/blog.js";
 import mongoose from "mongoose";
 import adminrouter from "./routes/adminRoutes.js";
+import { configDotenv } from "dotenv";
+configDotenv();
 
 const port = 5000;
 const app = express();
 
-const dbURI = "mongodb+srv://hyeasin59:hyeasin59@cluster0.s07ekdf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const dbURI = process.env.MONGOURL;
 
 mongoose.connect(dbURI)
     .then((result) => {

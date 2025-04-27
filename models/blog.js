@@ -1,4 +1,4 @@
-// mongodb+srv://hyeasin59:hyeasin59@cluster0.s07ekdf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
 
 import mongoose from "mongoose";
 
